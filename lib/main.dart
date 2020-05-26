@@ -1,5 +1,6 @@
 import 'package:eshop/screens/pages/home.dart';
-import 'package:eshop/screens/pages/setting.dart';
+import 'package:eshop/screens/pages/notification.dart';
+import 'package:eshop/screens/pages/settings/setting.dart';
 import 'package:eshop/screens/pages/wishlist.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.deepOrange[500],
+        primaryColor: Colors.lightBlue[900],
         accentColor: Colors.lightBlue[900],
         primarySwatch: Colors.lightBlue,
         fontFamily: 'Lato',
@@ -23,10 +24,10 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => HomePage(title: 'Eshop'),
+        '/': (context) => Home(title: 'Eshop'),
         '/wishlist': (context) => WishList(),
-        '/settings': (context) => Setting(),
-
+        '/setting': (context) => Setting(),
+        '/notification': (context) => NotificationScreen(), 
       },
     );
   }

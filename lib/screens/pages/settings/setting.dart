@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:cached_network_image/cached_network_image.dart';
-// import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class Setting extends StatefulWidget {
   @override
@@ -14,8 +12,7 @@ class _SettingState extends State<Setting> {
       appBar: AppBar(
         title: Text('Setting'),
       ),
-      body: ListView(
-        shrinkWrap: true,
+      body: ListView( 
         children: <Widget>[
           Card(
             child: ListTile(
