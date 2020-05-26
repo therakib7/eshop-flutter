@@ -1,5 +1,5 @@
 import 'package:eshop/screens/pages/home.dart';
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,18 +12,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(     
+      theme: ThemeData(
         primaryColor: Colors.deepOrange[500],
-        accentColor: Colors.lightBlue[900],   
-        primarySwatch: Colors.blue,   
+        accentColor: Colors.lightBlue[900],
+        primarySwatch: Colors.blue,
         fontFamily: 'Lato',
         visualDensity: VisualDensity.adaptivePlatformDensity,
-      ), 
+      ),
       initialRoute: '/',
-      routes: { 
-        '/': (context) => HomePage(title: 'Eshop'),  
+      routes: {
+        '/': (context) => HomePage(title: 'Eshop'),
       },
     );
   }
 }
- 

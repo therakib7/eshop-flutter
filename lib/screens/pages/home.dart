@@ -60,8 +60,10 @@ class _HomePageState extends State<HomePage> {
       drawer: Drawer(
         child: MainDrawer()
       ),
-      body: Center( 
-        child: Text('Home'),
+      body: ListView(
+        children: <Widget>[
+          Text("home")
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
