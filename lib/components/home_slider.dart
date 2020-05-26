@@ -11,10 +11,8 @@ final List<String> imgList = [
 final List<Widget> imageSliders = imgList
     .map(
       (item) => Container(
-        // width: MediaQuery.of(context).size.width,
         child: CachedNetworkImage(
-          fit: BoxFit.cover,
-          width: 1300,
+          fit: BoxFit.fitWidth,
           imageUrl: item,
           placeholder: (context, url) =>
               Center(child: CircularProgressIndicator()),
@@ -40,9 +38,9 @@ class _HomeSliderState extends State<HomeSlider> {
       CarouselSlider(
         items: imageSliders,
         options: CarouselOptions(
+            height: 150,
             autoPlay: true,
-            enlargeCenterPage: false,
-            // aspectRatio: 2.0,
+            viewportFraction: 1,
             onPageChanged: (index, reason) {
               setState(() {
                 _current = index;

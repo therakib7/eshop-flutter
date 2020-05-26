@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-class OfferProduct extends StatefulWidget {
+class TypeProduct extends StatefulWidget {
+
+  TypeProduct({Key key, this.title}) : super(key: key);
+
+  final String title;
+
   @override
-  _OfferProductState createState() => _OfferProductState();
+  _TypeProductState createState() => _TypeProductState();
 }
 
-class _OfferProductState extends State<OfferProduct> {
+class _TypeProductState extends State<TypeProduct> {
   final List<String> imgList = [
     'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=403&q=80',
     'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=404&q=80',
@@ -20,15 +25,15 @@ class _OfferProductState extends State<OfferProduct> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
-              child: Text('Offer Products',
+              padding: EdgeInsets.only(top: 12.0, left: 8.0, right: 8.0),
+              child: Text(widget.title,
                   style: TextStyle(
                       color: Theme.of(context).accentColor,
                       fontSize: 18,
                       fontWeight: FontWeight.w700)),
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 5.0, top: 5.0, left: 5.0),
+              padding: const EdgeInsets.only(right: 8.0, top: 9.0, left: 5.0),
               child: SizedBox(
                 width: 65, // specific value
                 height: 25,
@@ -36,7 +41,7 @@ class _OfferProductState extends State<OfferProduct> {
                     color: Theme.of(context).primaryColor,
                     padding: const EdgeInsets.all(0.0),
                     child:
-                        Text('View All', style: TextStyle(color: Colors.white)),
+                        Text('See All', style: TextStyle(color: Colors.white)),
                     onPressed: () {
                       Navigator.pushNamed(context, '/categorise');
                     }),
