@@ -2,7 +2,7 @@ import 'package:eshop/components/home_slider.dart';
 import 'package:eshop/components/main_drawer.dart';
 import 'package:eshop/components/new_arrival.dart';
 import 'package:eshop/components/offer_product.dart';
-import 'package:eshop/components/popular_category.dart';
+import 'package:eshop/components/popular_category.dart'; 
 import 'package:eshop/components/trending_product.dart';
 import 'package:flutter/material.dart';
 // import 'package:cached_network_image/cached_network_image.dart';
@@ -66,6 +66,7 @@ class _HomeState extends State<Home> {
       ),
       drawer: Drawer(child: MainDrawer()),
       body: ListView(
+        shrinkWrap: true,
         children: <Widget>[
           HomeSlider(),
           PopularCategory(),

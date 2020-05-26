@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 final List<String> imgList = [
-  'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=4010&q=80',
-  'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=401&q=80',
-  'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=402&q=80'
+  'https://evaly.com.bd/static/images/express_b.png',
+  'https://evaly.com.bd/static/images/express_f.png',
+  'https://evaly.com.bd/static/images/express_p.png'
 ];
 
 final List<Widget> imageSliders = imgList
@@ -14,6 +14,7 @@ final List<Widget> imageSliders = imgList
         // width: MediaQuery.of(context).size.width,
         child: CachedNetworkImage(
           fit: BoxFit.cover,
+          width: 1300,
           imageUrl: item,
           placeholder: (context, url) =>
               Center(child: CircularProgressIndicator()),
@@ -40,7 +41,7 @@ class _HomeSliderState extends State<HomeSlider> {
         items: imageSliders,
         options: CarouselOptions(
             autoPlay: true,
-            // enlargeCenterPage: true,
+            enlargeCenterPage: false,
             // aspectRatio: 2.0,
             onPageChanged: (index, reason) {
               setState(() {

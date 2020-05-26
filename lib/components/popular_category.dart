@@ -44,7 +44,6 @@ class _PopularCategoryState extends State<PopularCategory> {
             ),
           ],
         ),
-        
         Container(
           margin: EdgeInsets.symmetric(vertical: 8.0),
           height: 240.0,
@@ -63,7 +62,7 @@ class _PopularCategoryState extends State<PopularCategory> {
                               arguments: i);
                         },
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             SizedBox(
                               height: 160,

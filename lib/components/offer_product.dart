@@ -21,7 +21,7 @@ class _OfferProductState extends State<OfferProduct> {
           children: <Widget>[
             Padding(
               padding: EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
-              child: Text('New Arrivals',
+              child: Text('Offer Products',
                   style: TextStyle(
                       color: Theme.of(context).accentColor,
                       fontSize: 18,
