@@ -72,7 +72,7 @@ class _TypeProductState extends State<TypeProduct> {
                             SizedBox(
                               height: 160,
                               child: Hero(
-                                tag: '$i',
+                                tag: widget.title,
                                 child: CachedNetworkImage(
                                   fit: BoxFit.cover,
                                   imageUrl: i,
