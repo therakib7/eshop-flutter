@@ -1,4 +1,6 @@
 import 'package:eshop/screens/pages/home.dart';
+import 'package:eshop/screens/pages/setting.dart';
+import 'package:eshop/screens/pages/wishlist.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,6 +24,9 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => HomePage(title: 'Eshop'),
+        '/wishlist': (context) => WishList(),
+        '/settings': (context) => Setting(),
+
       },
     );
   }

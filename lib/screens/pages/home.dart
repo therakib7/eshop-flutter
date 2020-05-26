@@ -1,7 +1,9 @@
 import 'package:eshop/components/home_slider.dart';
 import 'package:eshop/components/main_drawer.dart';
+import 'package:eshop/components/new_arrival.dart';
+import 'package:eshop/components/trending_product.dart';
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:cached_network_image/cached_network_image.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -73,101 +75,8 @@ class _HomePageState extends State<HomePage> {
       body: ListView(
         children: <Widget>[
           HomeSlider(),
-          Padding(
-            padding: EdgeInsets.only(top: 14.0, left: 8.0, right: 8.0),
-            child: Text('New Arrivals',
-                style: TextStyle(
-                    color: Theme.of(context).accentColor,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700)),
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 8.0),
-            height: 240.0,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: iimgList.map((i) {
-                return Builder(
-                  builder: (BuildContext context) {
-                    return Container(
-                      width: 140.0,
-                      child: Card(
-                        clipBehavior: Clip.antiAlias,
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.pushNamed(context, '/products',
-                                arguments: i);
-                          },
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              SizedBox(
-                                height: 160,
-                                child: Hero(
-                                  tag: '$i',
-                                  child: CachedNetworkImage(
-                                    fit: BoxFit.cover,
-                                    imageUrl: i,
-                                    placeholder: (context, url) => Center(
-                                        child: CircularProgressIndicator()),
-                                    errorWidget: (context, url, error) =>
-                                        new Icon(Icons.error),
-                                  ),
-                                ),
-                              ),
-                              ListTile(
-                                title: Text(
-                                  'Two Gold Rings',
-                                  style: TextStyle(fontSize: 14),
-                                ),
-                                subtitle: Text('\$200',
-                                    style: TextStyle(
-                                        color: Theme.of(context).accentColor,
-                                        fontWeight: FontWeight.w700)),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                );
-              }).toList(),
-            ),
-          ),
-          Container(
-            child: Padding(
-              padding: EdgeInsets.only(top: 6.0, left: 8.0, right: 8.0),
-              child: Image(
-                fit: BoxFit.cover,
-                image: AssetImage('assets/images/banner-1.png'),
-              ),
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
-                child: Text('Shop By Category',
-                    style: TextStyle(
-                        color: Theme.of(context).accentColor,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700)),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 8.0, top: 8.0, left: 8.0),
-                child: RaisedButton(
-                    color: Theme.of(context).primaryColor,
-                    child:
-                        Text('View All', style: TextStyle(color: Colors.white)),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/categorise');
-                    }),
-              )
-            ],
-          ),
-           
+          NewArrival(), 
+          TrendingProduct(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
