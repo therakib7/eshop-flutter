@@ -1,3 +1,4 @@
+import 'package:eshop/screens/pages/cart.dart';
 import 'package:eshop/screens/pages/home.dart';
 import 'package:eshop/screens/pages/notification.dart';
 import 'package:eshop/screens/pages/settings/setting.dart';
@@ -26,8 +27,9 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => Home(title: 'Eshop'),
         '/wishlist': (context) => WishList(),
+        '/cart': (context) => Cart(), 
         '/setting': (context) => Setting(),
-        '/notification': (context) => NotificationScreen(), 
+        '/notification': (context) => NotificationScreen(),  
       },
     );
   }

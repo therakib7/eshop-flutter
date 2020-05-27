@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image/cached_network_image.dart'; 
 
 class TypeProduct extends StatefulWidget {
 
@@ -72,7 +72,7 @@ class _TypeProductState extends State<TypeProduct> {
                             SizedBox(
                               height: 160,
                               child: Hero(
-                                tag: widget.title,
+                                tag: UniqueKey().toString(),
                                 child: CachedNetworkImage(
                                   fit: BoxFit.cover,
                                   imageUrl: i,

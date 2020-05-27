@@ -2,43 +2,39 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 // import 'package:smooth_star_rating/smooth_star_rating.dart';
 
-// WishList is a StatefulWidget. This allows updating the state of the
+// Cart is a StatefulWidget. This allows updating the state of the
 // widget when an item is removed.
-class WishList extends StatefulWidget {
-  WishList({Key key}) : super(key: key);
+class Cart extends StatefulWidget {
+  Cart({Key key}) : super(key: key);
 
   @override
-  WishListState createState() {
-    return WishListState();
+  CartState createState() {
+    return CartState();
   }
 }
 
-class WishListState extends State<WishList> { 
-
+class CartState extends State<Cart> {
   final List<Map<dynamic, dynamic>> items = [
     {
       'name': 'IPhone',
       'rating': 3.0,
       'image':
-          'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=411&q=80'
+          'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
+      'price': '200'
     },
     {
       'name': 'IPhone X 2',
       'rating': 3.0,
       'image':
-          'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=412&q=80'
+          'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
+      'price': '200'
     },
     {
       'name': 'IPhone 11',
       'rating': 4.0,
       'image':
-          'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=413&q=80'
-    },
-    {
-      'name': 'IPhone 11',
-      'rating': 4.0,
-      'image':
-          'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=414&q=80'
+          'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=1950&q=80',
+      'price': '200'
     },
   ];
 
@@ -46,7 +42,7 @@ class WishListState extends State<WishList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('WishList'),
+        title: Text('Cart'),
       ),
       body: ListView.builder(
         itemCount: items.length,
@@ -172,7 +168,7 @@ class WishListState extends State<WishList> {
                               //     size: 16.0,
                               //     color: Colors.amber,
                               //     borderColor: Colors.amber,
-                              //     spacing: 0.0), 
+                              //     spacing: 0.0),
                               Padding(
                                 padding: const EdgeInsets.only(left: 6.0),
                                 child: Text('(4)',

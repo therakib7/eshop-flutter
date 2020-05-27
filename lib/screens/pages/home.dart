@@ -1,7 +1,7 @@
 import 'package:eshop/components/home_slider.dart';
-import 'package:eshop/components/main_drawer.dart'; 
+import 'package:eshop/components/main_drawer.dart';
 import 'package:eshop/components/popular_category.dart';
-import 'package:eshop/components/type_product.dart';  
+import 'package:eshop/components/type_product.dart';
 import 'package:flutter/material.dart';
 // import 'package:cached_network_image/cached_network_image.dart';
 
@@ -16,7 +16,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
- 
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -25,11 +25,11 @@ class _HomeState extends State<Home> {
           Navigator.pushNamed(context, '/');
           break;
         case 1:
-          // Navigator.pushNamed(context, '/my-favourite');
+          Navigator.pushNamed(context, '/wishlist');
           break;
 
         case 2:
-          // Navigator.pushNamed(context, '/cart');
+          Navigator.pushNamed(context, '/cart');
           break;
 
         case 3:
@@ -48,13 +48,6 @@ class _HomeState extends State<Home> {
         actions: <Widget>[
           IconButton(
               icon: Icon(
-                Icons.search,
-              ),
-              onPressed: () {
-                Navigator.pushNamed(context, '/search');
-              }),
-          IconButton(
-              icon: Icon(
                 Icons.notifications_none,
               ),
               onPressed: () {
@@ -66,11 +59,26 @@ class _HomeState extends State<Home> {
       body: ListView(
         shrinkWrap: true,
         children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(10),
+            child: TextField(
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: const BorderRadius.all(
+                      const Radius.circular(10.0),
+                    ),
+                  ),
+                  filled: true,
+                  hintStyle: TextStyle(color: Colors.grey[800]),
+                  hintText: 'What do you want to buy?',
+                  fillColor: Colors.white70),
+            ),
+          ), 
           HomeSlider(),
           PopularCategory(),
           TypeProduct(title: 'Offer Products'),
           TypeProduct(title: 'New Arrivals'),
-          TypeProduct(title: 'Trending Products'), 
+          TypeProduct(title: 'Trending Products'),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -82,10 +90,10 @@ class _HomeState extends State<Home> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite_border),
-            title: Text('Favorite'),
+            title: Text('WishList'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
+            icon: Icon(Icons.add_shopping_cart),
             title: Text('Cart'),
           ),
           BottomNavigationBarItem(
