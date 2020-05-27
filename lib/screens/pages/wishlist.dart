@@ -45,6 +45,10 @@ class WishListState extends State<WishList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pushNamed(context, '/'),
+        ),
         title: Text('WishList'),
       ),
       body: ListView.builder(
@@ -106,7 +110,7 @@ class WishListState extends State<WishList> {
             ),
             child: InkWell(
               onTap: () {
-                print('Card tapped.');
+                Navigator.pushNamed(context, '/product-detail', arguments: item);
               },
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
