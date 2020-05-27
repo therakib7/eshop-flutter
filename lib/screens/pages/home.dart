@@ -73,7 +73,7 @@ class _HomeState extends State<Home> {
                   hintText: 'What do you want to buy?',
                   fillColor: Colors.white70),
             ),
-          ), 
+          ),
           HomeSlider(),
           PopularCategory(),
           TypeProduct(title: 'Offer Products'),
@@ -86,24 +86,26 @@ class _HomeState extends State<Home> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            title: Text('Home'),
+            title: Text(''),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite_border),
-            title: Text('WishList'),
+            title: Text(''),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.add_shopping_cart),
-            title: Text('Cart'),
+            title: Text(''),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.chat),
-            title: Text('Chat'),
+            title: Text(''),
           ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Theme.of(context).accentColor,
         unselectedItemColor: Colors.black,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         onTap: _onItemTapped,
       ),
     );

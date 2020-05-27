@@ -71,6 +71,14 @@ class _MainDrawerState extends State<MainDrawer> {
             Navigator.pushNamed(context, '/cart');
           },
         ),
+         ListTile(
+          leading: Icon(Icons.refresh, color: Theme.of(context).accentColor),
+          title: Text('Order History'),
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, '/auth');
+          },
+        ),
         ListTile(
           leading: Icon(Icons.lock, color: Theme.of(context).accentColor),
           title: Text('Login'),
