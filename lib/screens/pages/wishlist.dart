@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:cached_network_image/cached_network_image.dart';
 // import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 // WishList is a StatefulWidget. This allows updating the state of the
@@ -13,8 +13,7 @@ class WishList extends StatefulWidget {
   }
 }
 
-class WishListState extends State<WishList> { 
-
+class WishListState extends State<WishList> {
   final List<Map<dynamic, dynamic>> items = [
     {
       'name': 'IPhone',
@@ -123,13 +122,16 @@ class WishListState extends State<WishList> {
                         borderRadius: BorderRadius.circular(5.0),
                         child: Container(
                           decoration: BoxDecoration(color: Colors.blue),
-                          child: CachedNetworkImage(
-                            fit: BoxFit.cover,
-                            imageUrl: item['image'],
-                            placeholder: (context, url) =>
-                                Center(child: CircularProgressIndicator()),
-                            errorWidget: (context, url, error) =>
-                                new Icon(Icons.error),
+                          // child: CachedNetworkImage(
+                          //   fit: BoxFit.cover,
+                          //   imageUrl: item['image'],
+                          //   placeholder: (context, url) =>
+                          //       Center(child: CircularProgressIndicator()),
+                          //   errorWidget: (context, url, error) =>
+                          //       new Icon(Icons.error),
+                          // ),
+                          child: Image.network(
+                            item['image'],
                           ),
                         ),
                       ),
@@ -172,7 +174,7 @@ class WishListState extends State<WishList> {
                               //     size: 16.0,
                               //     color: Colors.amber,
                               //     borderColor: Colors.amber,
-                              //     spacing: 0.0), 
+                              //     spacing: 0.0),
                               Padding(
                                 padding: const EdgeInsets.only(left: 6.0),
                                 child: Text('(4)',
