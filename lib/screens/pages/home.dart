@@ -42,7 +42,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold( 
       appBar: AppBar(
         title: Text(widget.title),
         actions: <Widget>[
@@ -65,20 +65,17 @@ class _HomeState extends State<Home> {
       drawer: Drawer(child: MainDrawer()),
       body: ListView(
         shrinkWrap: true,
-        children: <Widget>[
+        children: <Widget>[ 
           Padding(
-            padding: EdgeInsets.all(10),
-            child: TextField(
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: const BorderRadius.all(
-                      const Radius.circular(10.0),
-                    ),
-                  ),
-                  filled: true,
-                  hintStyle: TextStyle(color: Colors.grey[800]),
-                  hintText: 'What do you want to buy?',
-                  fillColor: Colors.white70),
+            padding: EdgeInsets.only(top: 5, right: 5, bottom: 5, left: 5,),
+            child: Card(
+              child: ListTile(
+                leading: Icon(Icons.search),
+                title: Text('What do you want to buy?'),
+                onTap: () {
+                  Navigator.pushNamed(context, '/search');
+                },
+              ),
             ),
           ),
           HomeSlider(),

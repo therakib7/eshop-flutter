@@ -3,6 +3,7 @@ import 'package:eshop/screens/pages/cart.dart';
 import 'package:eshop/screens/pages/home.dart';
 import 'package:eshop/screens/pages/notification.dart';
 import 'package:eshop/screens/pages/product_detail.dart';
+import 'package:eshop/screens/pages/search.dart';
 import 'package:eshop/screens/pages/settings/setting.dart';
 import 'package:eshop/screens/pages/wishlist/wishlist.dart';
 import 'package:flutter/material.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         '/product-detail': (context) => ProductDetail(),  
         '/setting': (context) => Setting(),
         '/notification': (context) => NotificationScreen(),  
+        '/search': (context) => SearchScreen(),  
       },
     );
   }
