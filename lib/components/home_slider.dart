@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image/cached_network_image.dart'; 
 
 final List<String> imgList = [
   'https://evaly.com.bd/static/images/express_b.png',
@@ -34,7 +34,7 @@ class _HomeSliderState extends State<HomeSlider> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
+    return Column(children: [ 
       CarouselSlider(
         items: imageSliders,
         options: CarouselOptions(

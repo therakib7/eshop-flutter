@@ -76,7 +76,7 @@ class _MainDrawerState extends State<MainDrawer> {
           title: Text('Order History'),
           onTap: () {
             Navigator.pop(context);
-            Navigator.pushNamed(context, '/auth');
+            Navigator.pushNamed(context, '/order-history');
           },
         ),
         ListTile(

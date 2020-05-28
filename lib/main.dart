@@ -1,9 +1,10 @@
+import 'package:eshop/screens/auth/auth.dart';
 import 'package:eshop/screens/pages/cart.dart';
 import 'package:eshop/screens/pages/home.dart';
 import 'package:eshop/screens/pages/notification.dart';
 import 'package:eshop/screens/pages/product_detail.dart';
 import 'package:eshop/screens/pages/settings/setting.dart';
-import 'package:eshop/screens/pages/wishlist.dart';
+import 'package:eshop/screens/pages/wishlist/wishlist.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => Home(title: 'Eshop'),
+        '/auth': (context) => Auth(),  
         '/wishlist': (context) => WishList(),
         '/cart': (context) => Cart(), 
         '/product-detail': (context) => ProductDetail(),  

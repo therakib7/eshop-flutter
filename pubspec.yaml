@@ -24,7 +24,7 @@ dev_dependencies:
     sdk: flutter
   intl: ^0.16.1
   graphql_flutter: ^3.0.1
-  carousel_slider: ^2.1.0
+  carousel_slider: ^2.1.0 
   transparent_image: ^1.0.0
   cached_network_image: ^2.2.0+1
   smooth_star_rating: ^1.1.1

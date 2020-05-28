@@ -52,6 +52,13 @@ class _HomeState extends State<Home> {
               ),
               onPressed: () {
                 Navigator.pushNamed(context, '/notification');
+              }),
+          IconButton(
+              icon: Icon(
+                Icons.add_shopping_cart,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, '/cart');
               })
         ],
       ),
@@ -92,10 +99,10 @@ class _HomeState extends State<Home> {
             icon: Icon(Icons.favorite_border),
             title: Text(''),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add_shopping_cart),
-            title: Text(''),
-          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.add_shopping_cart),
+          //   title: Text(''),
+          // ),
           BottomNavigationBarItem(
             icon: Icon(Icons.chat),
             title: Text(''),
