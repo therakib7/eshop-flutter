@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart'; 
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class TypeProduct extends StatefulWidget {
-
   TypeProduct({Key key, this.title}) : super(key: key);
 
   final String title;
@@ -12,11 +12,34 @@ class TypeProduct extends StatefulWidget {
 }
 
 class _TypeProductState extends State<TypeProduct> {
-  final List<String> imgList = [
-    'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=389&q=80',
-    'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=404&q=80',
-    'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=405&q=80'
+  
+  final List<Map<dynamic, dynamic>> items = [
+    {
+      'title': 'IPhone',
+      'rating': 3.0,
+      'image':
+          'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=411&q=80'
+    },
+    {
+      'title': 'IPhone X 2',
+      'rating': 3.0,
+      'image':
+          'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=412&q=80'
+    },
+    {
+      'title': 'IPhone 11',
+      'rating': 4.0,
+      'image':
+          'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=413&q=80'
+    },
+    {
+      'title': 'IPhone 12',
+      'rating': 4.0,
+      'image':
+          'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=414&q=80'
+    },
   ];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -54,7 +77,7 @@ class _TypeProductState extends State<TypeProduct> {
           height: 240.0,
           child: ListView(
             scrollDirection: Axis.horizontal,
-            children: imgList.map((i) {
+            children: items.map((item) {
               return Builder(
                 builder: (BuildContext context) {
                   return Container(
@@ -63,8 +86,8 @@ class _TypeProductState extends State<TypeProduct> {
                       clipBehavior: Clip.antiAlias,
                       child: InkWell(
                         onTap: () {
-                          Navigator.pushNamed(context, '/products',
-                              arguments: i);
+                          Navigator.pushNamed(context, '/product-detail',
+                              arguments: item);
                         },
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,7 +98,7 @@ class _TypeProductState extends State<TypeProduct> {
                                 tag: UniqueKey().toString(),
                                 child: CachedNetworkImage(
                                   fit: BoxFit.cover,
-                                  imageUrl: i,
+                                  imageUrl: item['image'],
                                   placeholder: (context, url) => Center(
                                       child: CircularProgressIndicator()),
                                   errorWidget: (context, url, error) =>
@@ -85,13 +108,63 @@ class _TypeProductState extends State<TypeProduct> {
                             ),
                             ListTile(
                               title: Text(
-                                'Two Gold Rings',
-                                style: TextStyle(fontSize: 14),
+                                item['title'],
+                                style: TextStyle(fontSize: 16),
                               ),
-                              subtitle: Text('\$200',
-                                  style: TextStyle(
-                                      color: Theme.of(context).accentColor,
-                                      fontWeight: FontWeight.w700)),
+                              // subtitle: Text('\$200',
+                              //     style: TextStyle(
+                              //         color: Theme.of(context).accentColor,
+                              //         fontWeight: FontWeight.w700)),
+                              subtitle: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Row(
+                                    children: <Widget>[
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            top: 2.0, bottom: 1),
+                                        child: Text('\$200',
+                                            style: TextStyle(
+                                              color:
+                                                  Theme.of(context).accentColor,
+                                              fontWeight: FontWeight.w700,
+                                            )),
+                                      ),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(left: 6.0),
+                                        child: Text('(\$400)',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w700,
+                                                fontStyle: FontStyle.italic,
+                                                color: Colors.grey,
+                                                decoration: TextDecoration
+                                                    .lineThrough)),
+                                      )
+                                    ],
+                                  ),
+                                  Row(
+                                    children: <Widget>[
+                                      SmoothStarRating(
+                                          starCount: 5,
+                                          rating: item['rating'],
+                                          size: 16.0,
+                                          color: Colors.amber,
+                                          borderColor: Colors.amber,
+                                          spacing: 0.0),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(left: 6.0),
+                                        child: Text('(4)',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w300,
+                                                color: Theme.of(context)
+                                                    .primaryColor)),
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
                             )
                           ],
                         ),

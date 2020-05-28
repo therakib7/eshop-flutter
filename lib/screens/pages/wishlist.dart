@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
 // import 'package:cached_network_image/cached_network_image.dart';
-// import 'package:smooth_star_rating/smooth_star_rating.dart';
+import 'package:smooth_star_rating/smooth_star_rating.dart';
 
-// WishList is a StatefulWidget. This allows updating the state of the
-// widget when an item is removed.
 class WishList extends StatefulWidget {
-  WishList({Key key}) : super(key: key);
-
   @override
-  WishListState createState() {
-    return WishListState();
-  }
+  _WishListState createState() => _WishListState();
 }
 
-class WishListState extends State<WishList> {
+class _WishListState extends State<WishList> {
   final List<Map<dynamic, dynamic>> items = [
     {
       'name': 'IPhone',
@@ -43,160 +37,184 @@ class WishListState extends State<WishList> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pushNamed(context, '/'),
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          bottom: TabBar(
+            tabs: [
+              Tab(text: "Products", icon: Icon(Icons.bookmark)),
+              Tab(text: "Shops", icon: Icon(Icons.shopping_basket)),
+              Tab(text: "Categories", icon: Icon(Icons.category)),
+            ],
+          ),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () => Navigator.pushNamed(context, '/'),
+          ),
+          title: Text('WishList'),
         ),
-        title: Text('WishList'),
-      ),
-      body: ListView.builder(
-        itemCount: items.length,
-        itemBuilder: (context, index) {
-          final item = items[index];
+        body: TabBarView(
+          children: [
+            ListView.builder(
+              itemCount: items.length,
+              itemBuilder: (context, index) {
+                final item = items[index];
 
-          return Dismissible(
-            // Each Dismissible must contain a Key. Keys allow Flutter to
-            // uniquely identify widgets.
-            key: Key(UniqueKey().toString()),
-            // Provide a function that tells the app
-            // what to do after an item has been swiped away.
-            onDismissed: (direction) {
-              // Remove the item from the data source.
-              setState(() {
-                items.removeAt(index);
-              });
+                return Dismissible(
+                  // Each Dismissible must contain a Key. Keys allow Flutter to
+                  // uniquely identify widgets.
+                  key: Key(UniqueKey().toString()),
+                  // Provide a function that tells the app
+                  // what to do after an item has been swiped away.
+                  onDismissed: (direction) {
+                    // Remove the item from the data source.
+                    setState(() {
+                      items.removeAt(index);
+                    });
 
-              if (direction == DismissDirection.endToStart) {
-                // Then show a snackbar.
-                Scaffold.of(context).showSnackBar(SnackBar(
-                    content: Text(item['name'] + " dismissed"),
-                    duration: Duration(seconds: 1)));
-              } else {
-                // Then show a snackbar.
-                Scaffold.of(context).showSnackBar(SnackBar(
-                    content: Text(item['name'] + " added to carts"),
-                    duration: Duration(seconds: 1)));
-              }
-            },
-            // Show a red background as the item is swiped away.
-            // background: Container(color: Colors.red),
-            // Show a red background as the item is swiped away.
-            background: Container(
-              decoration: BoxDecoration(color: Colors.green),
-              padding: EdgeInsets.all(5.0),
-              child: Row(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
-                    child: Icon(Icons.add_shopping_cart, color: Colors.white),
-                  ),
-                ],
-              ),
-            ),
-            secondaryBackground: Container(
-              decoration: BoxDecoration(color: Colors.red),
-              padding: EdgeInsets.all(5.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20.0),
-                    child: Icon(Icons.delete, color: Colors.white),
-                  ),
-                ],
-              ),
-            ),
-            child: InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, '/product-detail', arguments: item);
-              },
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Divider(
-                    height: 0,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
-                    child: ListTile(
-                      trailing: Icon(Icons.swap_horiz),
-                      leading: ClipRRect(
-                        borderRadius: BorderRadius.circular(5.0),
-                        child: Container(
-                          decoration: BoxDecoration(color: Colors.blue),
-                          // child: CachedNetworkImage(
-                          //   fit: BoxFit.cover,
-                          //   imageUrl: item['image'],
-                          //   placeholder: (context, url) =>
-                          //       Center(child: CircularProgressIndicator()),
-                          //   errorWidget: (context, url, error) =>
-                          //       new Icon(Icons.error),
-                          // ),
-                          child: Image.network(
-                            item['image'],
-                          ),
+                    if (direction == DismissDirection.endToStart) {
+                      // Then show a snackbar.
+                      Scaffold.of(context).showSnackBar(SnackBar(
+                          content: Text(item['name'] + " dismissed"),
+                          duration: Duration(seconds: 1)));
+                    } else {
+                      // Then show a snackbar.
+                      Scaffold.of(context).showSnackBar(SnackBar(
+                          content: Text(item['name'] + " added to carts"),
+                          duration: Duration(seconds: 1)));
+                    }
+                  },
+                  // Show a red background as the item is swiped away.
+                  // background: Container(color: Colors.red),
+                  // Show a red background as the item is swiped away.
+                  background: Container(
+                    decoration: BoxDecoration(color: Colors.green),
+                    padding: EdgeInsets.all(5.0),
+                    child: Row(
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20.0),
+                          child: Icon(Icons.add_shopping_cart,
+                              color: Colors.white),
                         ),
-                      ),
-                      title: Text(
-                        item['name'],
-                        style: TextStyle(fontSize: 14),
-                      ),
-                      subtitle: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(top: 2.0, bottom: 1),
-                                child: Text('\$200',
-                                    style: TextStyle(
-                                      color: Theme.of(context).accentColor,
-                                      fontWeight: FontWeight.w700,
-                                    )),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 6.0),
-                                child: Text('(\$400)',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                        fontStyle: FontStyle.italic,
-                                        color: Colors.grey,
-                                        decoration:
-                                            TextDecoration.lineThrough)),
-                              )
-                            ],
-                          ),
-                          Row(
-                            children: <Widget>[
-                              // SmoothStarRating(
-                              //     allowHalfRating: false,
-                              //     starCount: 5,
-                              //     rating: item['rating'],
-                              //     size: 16.0,
-                              //     color: Colors.amber,
-                              //     borderColor: Colors.amber,
-                              //     spacing: 0.0),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 6.0),
-                                child: Text('(4)',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w300,
-                                        color: Theme.of(context).primaryColor)),
-                              )
-                            ],
-                          )
-                        ],
-                      ),
+                      ],
                     ),
                   ),
-                ],
-              ),
+                  secondaryBackground: Container(
+                    decoration: BoxDecoration(color: Colors.red),
+                    padding: EdgeInsets.all(5.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(right: 20.0),
+                          child: Icon(Icons.delete, color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/product-detail',
+                          arguments: item);
+                    },
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Divider(
+                          height: 0,
+                        ),
+                        Padding(
+                          padding:
+                              const EdgeInsets.only(top: 10.0, bottom: 10.0),
+                          child: ListTile(
+                            trailing: Icon(Icons.swap_horiz),
+                            leading: ClipRRect(
+                              borderRadius: BorderRadius.circular(5.0),
+                              child: Container(
+                                decoration: BoxDecoration(color: Colors.blue),
+                                // child: CachedNetworkImage(
+                                //   fit: BoxFit.cover,
+                                //   imageUrl: item['image'],
+                                //   placeholder: (context, url) =>
+                                //       Center(child: CircularProgressIndicator()),
+                                //   errorWidget: (context, url, error) =>
+                                //       new Icon(Icons.error),
+                                // ),
+                                child: Image.network(
+                                  item['image'],
+                                ),
+                              ),
+                            ),
+                            title: Text(
+                              item['name'],
+                              style: TextStyle(fontSize: 14),
+                            ),
+                            subtitle: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Row(
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 2.0, bottom: 1),
+                                      child: Text('\$200',
+                                          style: TextStyle(
+                                            color:
+                                                Theme.of(context).accentColor,
+                                            fontWeight: FontWeight.w700,
+                                          )),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 6.0),
+                                      child: Text('(\$400)',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w700,
+                                              fontStyle: FontStyle.italic,
+                                              color: Colors.grey,
+                                              decoration:
+                                                  TextDecoration.lineThrough)),
+                                    )
+                                  ],
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    SmoothStarRating(
+                                        starCount: 5,
+                                        rating: item['rating'],
+                                        size: 16.0,
+                                        color: Colors.amber,
+                                        borderColor: Colors.amber,
+                                        spacing: 0.0),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 6.0),
+                                      child: Text('(4)',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w300,
+                                              color: Theme.of(context)
+                                                  .primaryColor)),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
             ),
-          );
-        },
+            ListView(
+              children: <Widget>[Text('Shops')],
+            ),
+            ListView(
+              children: <Widget>[Text('Categories')],
+            ),
+          ],
+        ),
       ),
     );
   }
