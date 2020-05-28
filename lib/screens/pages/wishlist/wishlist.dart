@@ -1,3 +1,4 @@
+import 'package:eshop/screens/pages/wishlist/brand.dart';
 import 'package:eshop/screens/pages/wishlist/category.dart';
 import 'package:eshop/screens/pages/wishlist/product.dart';
 import 'package:flutter/material.dart';
@@ -40,9 +41,7 @@ class _WishListState extends State<WishList> {
           children: [
             WishlistProduct(),
             WishlistCategory(),
-            ListView(
-              children: <Widget>[Text('Brands')],
-            ), 
+            WishlistBrand(), 
           ],
         ),
       ),

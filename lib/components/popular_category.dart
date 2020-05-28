@@ -10,7 +10,8 @@ class _PopularCategoryState extends State<PopularCategory> {
   final List<String> imgList = [
     'https://cdn.chaldal.net/_mpimage/fresh-fruits?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D29185&q=low&v=1&m=250&webp=1',
     'https://cdn.chaldal.net/_mpimage/fresh-vegetables?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D23773&q=low&v=1&m=250&webp=1',
-    'https://cdn.chaldal.net/_mpimage/local-breakfast?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D27881&q=best&v=1&m=250&webp=1'
+    'https://cdn.chaldal.net/_mpimage/local-breakfast?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D27881&q=best&v=1&m=250&webp=1',
+    'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=414&q=80'
   ];
   @override
   Widget build(BuildContext context) {
@@ -46,7 +47,7 @@ class _PopularCategoryState extends State<PopularCategory> {
         ),
         Container(
           margin: EdgeInsets.symmetric(vertical: 8.0),
-          height: 240.0,
+          height: 225.0,
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: imgList.map((i) {
@@ -79,11 +80,11 @@ class _PopularCategoryState extends State<PopularCategory> {
                               ),
                             ),
                             ListTile(
-                              title: Text(
-                                'Food & Vegitable',
-                                style: TextStyle(fontSize: 16),
-                              ),
-                            )
+                                title: Text(
+                              'Two Gold Rings',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700, fontSize: 16),
+                            ))
                           ],
                         ),
                       ),

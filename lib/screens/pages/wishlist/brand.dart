@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 // import 'package:smooth_star_rating/smooth_star_rating.dart';
 
-class WishlistCategory extends StatefulWidget {
+class WishlistBrand extends StatefulWidget {
   @override
-  _WishlistCategoryState createState() => _WishlistCategoryState();
+  _WishlistBrandState createState() => _WishlistBrandState();
 }
 
-class _WishlistCategoryState extends State<WishlistCategory> {
+class _WishlistBrandState extends State<WishlistBrand> {
   final List<Map<dynamic, dynamic>> items = [
     {
       'name': 'Cloth',
