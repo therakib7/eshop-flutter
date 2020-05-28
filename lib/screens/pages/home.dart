@@ -80,9 +80,9 @@ class _HomeState extends State<Home> {
           ),
           HomeSlider(),
           PopularCategory(),
-          TypeProduct(title: 'Offer Products'),
-          TypeProduct(title: 'New Arrivals'),
-          TypeProduct(title: 'Trending Products'),
+          TypeProductCom(name: 'offer_product', title: 'Offer Products'),
+          TypeProductCom(name: 'new_arrival', title: 'New Arrivals'),
+          TypeProductCom(name: 'trending_product', title: 'Trending Products'),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

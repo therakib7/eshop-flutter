@@ -1,18 +1,19 @@
+import 'package:eshop/screens/pages/type-product/type_product_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
-class TypeProduct extends StatefulWidget {
-  TypeProduct({Key key, this.title}) : super(key: key);
+class TypeProductCom extends StatefulWidget {
+  TypeProductCom({Key key, this.title, this.name}) : super(key: key);
 
   final String title;
+  final String name;
 
   @override
-  _TypeProductState createState() => _TypeProductState();
+  _TypeProductComState createState() => _TypeProductComState();
 }
 
-class _TypeProductState extends State<TypeProduct> {
-  
+class _TypeProductComState extends State<TypeProductCom> {
   final List<Map<dynamic, dynamic>> items = [
     {
       'title': 'IPhone',
@@ -66,7 +67,11 @@ class _TypeProductState extends State<TypeProduct> {
                     child:
                         Text('See All', style: TextStyle(color: Colors.white)),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/categorise');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => TypeProductScreen(title: widget.title)),
+                      );
                     }),
               ),
             ),

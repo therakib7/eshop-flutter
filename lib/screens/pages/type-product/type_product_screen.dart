@@ -1,48 +1,51 @@
-import 'package:eshop/screens/pages/wishlist/brand.dart';
-import 'package:eshop/screens/pages/wishlist/category.dart';
-import 'package:eshop/screens/pages/wishlist/product.dart';
+import 'package:eshop/screens/pages/type-product/type_product.dart'; 
 import 'package:flutter/material.dart';
 
-class WishList extends StatefulWidget {
+class TypeProductScreen extends StatefulWidget {
+  TypeProductScreen({Key key, this.title}) : super(key: key);
+
+  final String title; 
+
   @override
-  _WishListState createState() => _WishListState();
+  _TypeProductScreenState createState() => _TypeProductScreenState();
 }
 
-class _WishListState extends State<WishList> {
+class _TypeProductScreenState extends State<TypeProductScreen> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { 
+    
     return DefaultTabController(
       length: 3,
       child: Scaffold(
         appBar: AppBar(
           bottom: TabBar(
-            // isScrollable: true,
+            isScrollable: true,
             tabs: [
               Tab(
-                text: "Products",
+                text: "Price (Low->High)",
                 //icon: Icon(Icons.bookmark),
               ), 
               Tab(
-                text: "Categories",
+                text: "Price (High->Low)",
                 //icon: Icon(Icons.category),
               ),
               Tab(
-                text: "Brands",
+                text: "Top Rated",
                 //icon: Icon(Icons.shopping_basket),
-              ),
+              ), 
             ],
           ),
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () => Navigator.pushNamed(context, '/'),
           ),
-          title: Text('WishList'),
+          title: Text( widget.title ),
         ),
         body: TabBarView(
           children: [
-            WishlistProduct(),
-            WishlistCategory(),
-            WishlistBrand(), 
+            TypeProduct(), 
+            TypeProduct(), 
+            TypeProduct(),  
           ],
         ),
       ),
