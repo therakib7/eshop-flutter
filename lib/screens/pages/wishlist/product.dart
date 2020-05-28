@@ -120,6 +120,7 @@ class _WishlistProductState extends State<WishlistProduct> {
                         //   errorWidget: (context, url, error) =>
                         //       new Icon(Icons.error),
                         // ),
+                        width: 80,
                         child: Image.network(
                           item['image'],
                         ),
@@ -157,6 +158,7 @@ class _WishlistProductState extends State<WishlistProduct> {
                         Row(
                           children: <Widget>[
                             SmoothStarRating(
+                                isReadOnly: true,
                                 starCount: 5,
                                 rating: item['rating'],
                                 size: 16.0,

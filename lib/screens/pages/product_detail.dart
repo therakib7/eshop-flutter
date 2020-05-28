@@ -116,8 +116,7 @@ class _ProductDetailState extends State<ProductDetail> {
                           ),
                           Row(
                             children: <Widget>[
-                              SmoothStarRating(
-                                  allowHalfRating: false,
+                              SmoothStarRating( 
                                   onRated: (v) {},
                                   starCount: 5,
                                   size: 20.0,

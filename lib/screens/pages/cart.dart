@@ -127,6 +127,7 @@ class _CartState extends State<Cart> {
                                   child: Container(
                                     decoration:
                                         BoxDecoration(color: Colors.blue),
+                                    width: 80,
                                     child: Image.network(
                                       item['image'],
                                     ),

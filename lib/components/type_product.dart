@@ -115,11 +115,7 @@ class _TypeProductComState extends State<TypeProductCom> {
                               title: Text(
                                 item['title'],
                                 style: TextStyle(fontSize: 16),
-                              ),
-                              // subtitle: Text('\$200',
-                              //     style: TextStyle(
-                              //         color: Theme.of(context).accentColor,
-                              //         fontWeight: FontWeight.w700)),
+                              ), 
                               subtitle: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
@@ -151,6 +147,7 @@ class _TypeProductComState extends State<TypeProductCom> {
                                   Row(
                                     children: <Widget>[
                                       SmoothStarRating(
+                                          isReadOnly: true,
                                           starCount: 5,
                                           rating: item['rating'],
                                           size: 16.0,
