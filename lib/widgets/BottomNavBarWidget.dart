@@ -25,8 +25,8 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
             Navigator.pushNamed(context, '/cart');
             break;
 
-          case 3:
-            // Navigator.pushNamed(context, '/chat');
+          case 3: 
+            Navigator.pushNamed(context, '/chat');
             break;
           default:
         }
