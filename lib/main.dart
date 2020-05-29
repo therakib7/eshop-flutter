@@ -7,9 +7,16 @@ import 'package:eshop/screens/pages/search.dart';
 import 'package:eshop/screens/pages/settings/setting.dart'; 
 import 'package:eshop/screens/pages/wishlist/wishlist.dart';
 import 'package:flutter/material.dart';
+import 'package:eshop/screens/auth/auth_block.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  // runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(MultiProvider(
+    providers: [ChangeNotifierProvider<AuthBlock>.value(value: AuthBlock())],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
