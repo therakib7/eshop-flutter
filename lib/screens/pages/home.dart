@@ -31,7 +31,7 @@ class _HomeState extends State<Home> {
               }),
           IconButton(
               icon: Icon(
-                Icons.add_shopping_cart,
+                Icons.person_outline,
               ),
               onPressed: () {
                 Navigator.pushNamed(context, '/cart');

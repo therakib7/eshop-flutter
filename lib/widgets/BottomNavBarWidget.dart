@@ -44,10 +44,10 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
           icon: Icon(Icons.favorite_border),
           title: Text(''),
         ),
-        // BottomNavigationBarItem(
-        //   icon: Icon(Icons.add_shopping_cart),
-        //   title: Text(''),
-        // ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.add_shopping_cart),
+          title: Text(''),
+        ),
         BottomNavigationBarItem(
           icon: Icon(Icons.chat),
           title: Text(''),
