@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:eshop/screens/auth/auth_block.dart';
+import 'package:provider/provider.dart';
 
 class MainDrawer extends StatefulWidget {
   @override
@@ -8,8 +10,31 @@ class MainDrawer extends StatefulWidget {
 class _MainDrawerState extends State<MainDrawer> {
   @override
   Widget build(BuildContext context) {
+    AuthBlock auth = Provider.of<AuthBlock>(context);
+
     return ListView(
       children: <Widget>[
+        // if (auth.isLoggedIn)
+        if (true)
+          UserAccountsDrawerHeader(
+            decoration: BoxDecoration(
+                image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage('assets/images/drawer-header.jpg'),
+            )),
+            currentAccountPicture: CircleAvatar(
+              backgroundImage: NetworkImage(
+                  'https://avatars2.githubusercontent.com/u/2400215?s=120&v=4'),
+            ),
+            // accountEmail: Text(auth.user['user_email']),
+            // accountName: Text(
+            //   auth.user['user_display_name'],
+            // ),
+            accountEmail: Text("therakib7@gmail.com"),
+            accountName: Text(
+              "Rakib Hasan",
+            ),
+          ),
         ListTile(
           leading: Icon(Icons.home, color: Theme.of(context).accentColor),
           title: Text('Home'),
@@ -71,7 +96,7 @@ class _MainDrawerState extends State<MainDrawer> {
             Navigator.pushNamed(context, '/cart');
           },
         ),
-         ListTile(
+        ListTile(
           leading: Icon(Icons.refresh, color: Theme.of(context).accentColor),
           title: Text('Order History'),
           onTap: () {
@@ -95,13 +120,13 @@ class _MainDrawerState extends State<MainDrawer> {
             Navigator.pop(context);
             Navigator.pushNamed(context, '/setting');
           },
-        ), 
+        ),
         ListTile(
           leading:
               Icon(Icons.exit_to_app, color: Theme.of(context).accentColor),
           title: Text('Logout'),
           onTap: () async {
-            // await auth.logout();
+            await auth.logout();
           },
         )
       ],

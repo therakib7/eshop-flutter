@@ -1,11 +1,9 @@
+import 'package:eshop/components/search_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 import 'package:eshop/widgets/BottomNavBarWidget.dart';
-
-
-import 'search.dart';
-
+ 
 class TypeProductScreen extends StatefulWidget {
   TypeProductScreen({Key key, this.title}) : super(key: key);
 
@@ -66,17 +64,17 @@ class _TypeProductScreenState extends State<TypeProductScreen> {
     return Scaffold(
         key: scaffoldKey,
         appBar: AppBar(
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.search, color: Colors.white),
-              onPressed: () {
-                scaffoldKey.currentState
-                    .showBottomSheet((context) => ShopSearch());
-              },
-            )
+          actions: <Widget>[ 
+            Builder(
+              builder: (context) => IconButton(
+                    icon: Icon(Icons.search),
+                    onPressed: () => Scaffold.of(context).openEndDrawer(), 
+                  ),
+            ),
           ],
           title: Text(widget.title),
-        ),
+        ), 
+        endDrawer: Drawer(child: SearchDrawer()),
         body: GridView.count(
           shrinkWrap: true,
           crossAxisCount: 2, 

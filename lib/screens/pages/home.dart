@@ -3,8 +3,7 @@ import 'package:eshop/components/popular_category.dart';
 import 'package:eshop/components/slider.dart';
 import 'package:eshop/components/type_product.dart';
 import 'package:eshop/widgets/BottomNavBarWidget.dart';
-import 'package:flutter/material.dart';
-// import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart'; 
 
 class Home extends StatefulWidget {
   Home({Key key, this.title}) : super(key: key);
@@ -34,7 +33,7 @@ class _HomeState extends State<Home> {
                 Icons.person_outline,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, '/cart');
+                Navigator.pushNamed(context, '/setting');                
               })
         ],
       ),
