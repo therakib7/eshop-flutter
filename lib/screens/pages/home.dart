@@ -1,95 +1,72 @@
+import 'package:eshop/components/home_slider.dart';
 import 'package:eshop/components/main_drawer.dart';
-import 'package:flutter/material.dart'; 
+import 'package:eshop/components/popular_category.dart';
+import 'package:eshop/components/type_product.dart';
+import 'package:eshop/widgets/BottomNavBarWidget.dart';
+import 'package:flutter/material.dart';
+// import 'package:cached_network_image/cached_network_image.dart';
 
-class HomePage extends StatefulWidget {
-  HomePage({Key key, this.title}) : super(key: key);
+class Home extends StatefulWidget {
+  Home({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomeState createState() => _HomeState();
 }
 
-class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-      switch (_selectedIndex) {
-        case 0:
-          Navigator.pushNamed(context, '/');
-          break;
-        case 1:
-          // Navigator.pushNamed(context, '/my-favourite');
-          break;
-        
-        case 2:
-          // Navigator.pushNamed(context, '/cart');
-          break;
-        
-        case 3:
-          // Navigator.pushNamed(context, '/chat');
-          break;
-        default:
-      } 
-    });
-  }
+class _HomeState extends State<Home> {
   @override
-  Widget build(BuildContext context) { 
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(  
+      appBar: AppBar(
         title: Text(widget.title),
         actions: <Widget>[
-          IconButton(
-              icon: Icon(
-                Icons.search,
-              ),
-              onPressed: () {
-                Navigator.pushNamed(context, '/search');
-              }),
           IconButton(
               icon: Icon(
                 Icons.notifications_none,
               ),
               onPressed: () {
                 Navigator.pushNamed(context, '/notification');
+              }),
+          IconButton(
+              icon: Icon(
+                Icons.add_shopping_cart,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, '/cart');
               })
         ],
       ),
-      drawer: Drawer(
-        child: MainDrawer()
-      ),
+      drawer: Drawer(child: MainDrawer()),
       body: ListView(
+        shrinkWrap: true,
         children: <Widget>[
-          Text("home")
+          Padding(
+            padding: EdgeInsets.only(
+              top: 5,
+              right: 5,
+              bottom: 5,
+              left: 5,
+            ),
+            child: Card(
+              child: ListTile(
+                leading: Icon(Icons.search),
+                title: Text('What do you want to buy?'),
+                onTap: () {
+                  Navigator.pushNamed(context, '/search');
+                },
+              ),
+            ),
+          ),
+          HomeSlider(),
+          PopularCategory(),
+          TypeProductCom(name: 'offer_product', title: 'Offer Products'),
+          TypeProductCom(name: 'new_arrival', title: 'New Arrivals'),
+          TypeProductCom(name: 'trending_product', title: 'Trending Products'),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Home'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border),
-            title: Text('Favorite'),
-          ), 
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            title: Text('Cart'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            title: Text('Chat'),
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.black, 
-        onTap: _onItemTapped,
-      ),
+      bottomNavigationBar: BottomNavBarWidget(),
     );
   }
 }
