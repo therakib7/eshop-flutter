@@ -23,13 +23,13 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   intl: ^0.16.1
+  provider: ^4.1.2
+  http: ^0.12.1 
   graphql_flutter: ^3.0.1
   carousel_slider: ^2.1.0 
   transparent_image: ^1.0.0
   cached_network_image: ^2.2.0+1
-  smooth_star_rating: ^1.1.1
-  http: ^0.12.1
-  provider: ^4.1.2
+  smooth_star_rating: ^1.1.1 
   flutter_secure_storage: ^3.3.3
   fluttertoast: ^4.0.1 
 
