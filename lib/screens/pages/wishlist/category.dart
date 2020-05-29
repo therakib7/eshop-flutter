@@ -78,7 +78,7 @@ class _WishlistCategoryState extends State<WishlistCategory> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   SizedBox( 
-                    height: (MediaQuery.of(context).size.width / 2) - 70,
+                    height: 160,
                     width: double.infinity,
                     child: CachedNetworkImage(
                       fit: BoxFit.cover,
