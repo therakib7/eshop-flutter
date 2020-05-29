@@ -1,6 +1,6 @@
-import 'package:eshop/components/home_slider.dart';
 import 'package:eshop/components/main_drawer.dart';
 import 'package:eshop/components/popular_category.dart';
+import 'package:eshop/components/slider.dart';
 import 'package:eshop/components/type_product.dart';
 import 'package:eshop/widgets/BottomNavBarWidget.dart';
 import 'package:flutter/material.dart';
@@ -59,7 +59,7 @@ class _HomeState extends State<Home> {
               ),
             ),
           ),
-          HomeSlider(),
+          GallerySlider(),
           PopularCategory(),
           TypeProductCom(name: 'offer_product', title: 'Offer Products'),
           TypeProductCom(name: 'new_arrival', title: 'New Arrivals'),

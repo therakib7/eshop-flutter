@@ -22,14 +22,14 @@ final List<Widget> imageSliders = imgList
     )
     .toList();
 
-class HomeSlider extends StatefulWidget {
+class GallerySlider extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _HomeSliderState();
+    return _GallerySliderState();
   }
 }
 
-class _HomeSliderState extends State<HomeSlider> {
+class _GallerySliderState extends State<GallerySlider> {
   int _current = 0;
 
   @override

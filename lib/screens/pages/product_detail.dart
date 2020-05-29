@@ -1,4 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:eshop/components/slider.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
@@ -29,8 +29,6 @@ final List<Widget> imageSliders = imgList
     .toList();
 
 class _ProductDetailState extends State<ProductDetail> {
-  int _current = 0;
-
   @override
   Widget build(BuildContext context) {
     // final args = ModalRoute.of(context).settings.arguments;
@@ -42,36 +40,7 @@ class _ProductDetailState extends State<ProductDetail> {
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              CarouselSlider(
-                items: imageSliders,
-                options: CarouselOptions(
-                    height: 150,
-                    autoPlay: true,
-                    viewportFraction: 1,
-                    onPageChanged: (index, reason) {
-                      setState(() {
-                        _current = index;
-                      });
-                    }),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: imgList.map((url) {
-                  int index = imgList.indexOf(url);
-                  return Container(
-                    width: 8.0,
-                    height: 8.0,
-                    margin:
-                        EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: _current == index
-                          ? Color.fromRGBO(0, 0, 0, 0.9)
-                          : Color.fromRGBO(0, 0, 0, 0.4),
-                    ),
-                  );
-                }).toList(),
-              ),
+              GallerySlider(),
               Padding(
                 padding: const EdgeInsets.only(left: 15, right: 15),
                 child: Column(
@@ -115,17 +84,18 @@ class _ProductDetailState extends State<ProductDetail> {
                             ],
                           ),
                           Row(
-                            children: <Widget>[
-                              SmoothStarRating( 
-                                  onRated: (v) {},
-                                  starCount: 5,
-                                  size: 20.0,
-                                  color: Colors.amber,
-                                  borderColor: Colors.amber,
-                                  spacing: -0.8),
+                            children: <Widget>[ 
+                              SmoothStarRating(
+                                      isReadOnly: true,
+                                      starCount: 5,
+                                      rating: 4.0,
+                                      size: 20.0,
+                                      color: Colors.amber,
+                                      borderColor: Colors.amber,
+                                      spacing: 0.0),
                               Padding(
                                 padding: const EdgeInsets.only(left: 10.0),
-                                child: Text('(0.00)',
+                                child: Text('(20)',
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 16,
