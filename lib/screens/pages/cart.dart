@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:eshop/widgets/BottomNavBarWidget.dart';
 // import 'package:cached_network_image/cached_network_image.dart';
 // import 'package:smooth_star_rating/smooth_star_rating.dart';
 
@@ -242,6 +243,9 @@ class _CartState extends State<Cart> {
               ),
             ),
           ],
-        ));
+        ),
+        bottomNavigationBar: BottomNavBarWidget(),
+    );
+
   }
 }
