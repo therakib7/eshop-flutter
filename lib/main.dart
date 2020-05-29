@@ -1,4 +1,5 @@
 import 'package:eshop/screens/auth/auth.dart';
+import 'package:eshop/screens/chat/chat.dart';
 import 'package:eshop/screens/pages/cart.dart';
 import 'package:eshop/screens/pages/home.dart';
 import 'package:eshop/screens/pages/notification.dart';
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
         '/setting': (context) => Setting(),
         '/notification': (context) => NotificationScreen(),  
         '/search': (context) => SearchScreen(),  
+        '/chat': (context) => ChatScreen(),  
       },
     );
   }
