@@ -28,7 +28,13 @@
 .packages
 .pub-cache/
 .pub/
+/android/
 /build/
+/iso/
+.metadata
+pubspec.lock
+eshop.iml
+
 
 # Web related
 lib/generated_plugin_registrant.dart
