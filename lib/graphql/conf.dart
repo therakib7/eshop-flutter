@@ -1,23 +1,24 @@
 import "package:flutter/material.dart";
 import "package:graphql_flutter/graphql_flutter.dart";
 
-
-class GraphQLConfiguration {
+class GraphQLConfig {
   static HttpLink httpLink = HttpLink(
-    uri: "https://examplegraphql.herokuapp.com/graphql",
+    // uri: 'https://api.github.com/graphql',
+    uri: 'https://examplegraphql.herokuapp.com/graphql'
   );
+
+  static AuthLink authLink = AuthLink(
+    getToken: () async => 'Bearer 75e7adacf4f85fd2a5e857428212ef956133fddb',
+    // OR
+    // getToken: () => 'Bearer <YOUR_PERSONAL_ACCESS_TOKEN>',
+  );
+
+  static Link link = authLink.concat(httpLink);
 
   ValueNotifier<GraphQLClient> client = ValueNotifier(
     GraphQLClient(
-      link: httpLink,
-      cache: OptimisticCache(dataIdFromObject: typenameDataIdFromObject),
+      cache: InMemoryCache(),
+      link: link,
     ),
   );
-
-  GraphQLClient clientToQuery() {
-    return GraphQLClient(
-      cache: OptimisticCache(dataIdFromObject: typenameDataIdFromObject),
-      link: httpLink,
-    );
-  }
 }

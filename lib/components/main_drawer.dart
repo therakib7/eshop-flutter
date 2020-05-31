@@ -1,3 +1,4 @@
+import 'package:eshop/screens/pages/order-history.dart';
 import 'package:flutter/material.dart';
 import 'package:eshop/screens/auth/auth_block.dart';
 import 'package:provider/provider.dart';
@@ -14,8 +15,7 @@ class _MainDrawerState extends State<MainDrawer> {
 
     return ListView(
       children: <Widget>[
-        // if (auth.isLoggedIn)
-        if (true)
+        if (auth.isLoggedIn)
           UserAccountsDrawerHeader(
             decoration: BoxDecoration(
                 image: DecorationImage(
@@ -101,7 +101,11 @@ class _MainDrawerState extends State<MainDrawer> {
           title: Text('Order History'),
           onTap: () {
             Navigator.pop(context);
-            Navigator.pushNamed(context, '/order-history');
+            // Navigator.pushNamed(context, '/order-history');
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => OrderHistory()),
+            );
           },
         ),
         ListTile(
