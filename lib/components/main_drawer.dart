@@ -1,3 +1,4 @@
+import 'package:eshop/screens/pages/Role.dart';
 import 'package:eshop/screens/pages/order-history.dart';
 import 'package:flutter/material.dart';
 import 'package:eshop/screens/auth/auth_block.dart';
@@ -105,6 +106,16 @@ class _MainDrawerState extends State<MainDrawer> {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => OrderHistory()),
+            );
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.settings, color: Theme.of(context).accentColor),
+          title: Text('Roles'),
+          onTap: () { 
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Role()),
             );
           },
         ),

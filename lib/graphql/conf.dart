@@ -4,7 +4,8 @@ import "package:graphql_flutter/graphql_flutter.dart";
 class GraphQLConfig {
   static HttpLink httpLink = HttpLink(
     // uri: 'https://api.github.com/graphql',
-    uri: 'https://examplegraphql.herokuapp.com/graphql'
+    // uri: 'https://examplegraphql.herokuapp.com/graphql'
+    uri: 'http://10.0.2.2:4000/api/graphql'
   );
 
   static AuthLink authLink = AuthLink(

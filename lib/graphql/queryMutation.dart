@@ -16,11 +16,8 @@ class QueryMutation {
   String getAll(){
     return """
       {
-        persons{
-          id
-          name
-          lastName
-          age
+        roles{ 
+          name 
         }
       }
     """;

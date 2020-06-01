@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       child: CacheProvider(
         child: MaterialApp(
           title: 'Eshop',
-          debugShowCheckedModeBanner: false,
+          debugShowCheckedModeBanner: true,
           theme: ThemeData(
             primaryColor: Colors.lightBlue[900],
             accentColor: Colors.lightBlue[900],
