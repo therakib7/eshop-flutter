@@ -1,3 +1,4 @@
+import 'package:eshop/screens/pages/forms/role_form.dart';
 import 'package:flutter/material.dart';
 import "package:graphql_flutter/graphql_flutter.dart";
 import 'package:eshop/graphql/roleQueryMutation.dart';
@@ -26,7 +27,10 @@ class _RoleState extends State<Role> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-
+          Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => RoleForm()),
+            );
         },
         tooltip: 'New Role',
         child: Icon(Icons.add),
