@@ -1,6 +1,5 @@
+import 'package:eshop/widgets/BottomNavBarWidget.dart';
 import 'package:flutter/material.dart';
-import "package:graphql_flutter/graphql_flutter.dart";
-import 'package:eshop/graphql/queryMutation.dart';
 
 class OrderHistory extends StatefulWidget {
   @override
@@ -14,44 +13,16 @@ class _OrderHistoryState extends State<OrderHistory> {
       appBar: AppBar(
         title: Text('Order History'),
       ),
-      body: Query(
-        options: QueryOptions(
-          documentNode: gql(QueryMutation()
-              .getAll()), // this is the query string you just created
-          variables: {
-            'nRepositories': 50,
+      body: Center(
+        child: RaisedButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/notification');
+            // Navigate back to first screen when tapped.
           },
-          pollInterval: 10,
+          child: Text('Go to Notification!'),
         ),
-        // Just like in apollo refetch() could be used to manually trigger a refetch
-        // while fetchMore() can be used for pagination purpose
-        builder: (QueryResult result,
-            {VoidCallback refetch, FetchMore fetchMore}) {
-          if (result.hasException) {
-            return Text(result.exception.toString());
-          }
-
-          if (result.loading) {
-            return Text('Loading');
-          }
-
-          // it can be either Map or List
-          List repositories = result.data['roles'];
-
-          return ListView.builder(
-              // shrinkWrap: true,
-              itemCount: repositories.length,
-              itemBuilder: (context, index) {
-                final repository = repositories[index];
-
-                return Card(
-                  child: ListTile(
-                    title: Text(repository['name']),
-                  ),
-                );
-              });
-        },
       ),
+      bottomNavigationBar: BottomNavBarWidget(),
     );
   }
 }
