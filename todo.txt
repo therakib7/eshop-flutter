@@ -1,24 +1,24 @@
 In Provider Package note
+==========================================
 
 
-
-    DO create a new object inside create.
+DO create a new object inside create.
 
 Provider(
   create: (_) => MyModel(),
   child: ...
 )
 
-    DON'T use Provider.value to create your object.
+DON'T use Provider.value to create your object.
 
 ChangeNotifierProvider.value(
   value: MyModel(),
   child: ...
 )
 
-    DON'T create your object from variables that can change over the time.
+DON'T create your object from variables that can change over the time.
 
-    In such a situation, your object would never be updated when the value changes.
+In such a situation, your object would never be updated when the value changes.
 
 int count;
 
