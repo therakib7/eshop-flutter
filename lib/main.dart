@@ -12,6 +12,7 @@ import 'package:eshop/screens/auth/auth_block.dart';
 import 'package:provider/provider.dart';
 import 'package:eshop/graphql/conf.dart';
 import "package:graphql_flutter/graphql_flutter.dart";
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   // runApp(MyApp());
@@ -36,7 +37,10 @@ class MyApp extends StatelessWidget {
             primaryColor: Colors.lightBlue[900],
             accentColor: Colors.lightBlue[900],
             primarySwatch: Colors.lightBlue,
-            fontFamily: 'Lato',
+            // fontFamily: 'Lato',
+            textTheme: GoogleFonts.latoTextTheme(
+              Theme.of(context).textTheme,
+            ),
             visualDensity: VisualDensity.adaptivePlatformDensity,
           ),
           initialRoute: '/',

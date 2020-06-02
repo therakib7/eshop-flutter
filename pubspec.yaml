@@ -22,6 +22,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  google_fonts: ^1.1.0
   intl: ^0.16.1
   provider: ^4.1.2
   http: ^0.12.1 
@@ -55,32 +56,3 @@ flutter:
 
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
-  fonts:
-    - family: Lato
-      fonts:
-        - asset: assets/fonts/lato/Lato-Regular.ttf
-        - asset: assets/fonts/lato/Lato-RegularItalic.ttf
-          style: italic
-        - asset: assets/fonts/lato/Lato-Bold.ttf
-          weight: 700
-        - asset: assets/fonts/lato/Lato-BoldItalic.ttf
-          weight: 700
-          style: italic
-        - asset: assets/fonts/lato/Lato-Black.ttf
-          weight: 900
-        - asset: assets/fonts/lato/Lato-BlackItalic.ttf
-          weight: 900
-          style: italic
-        - asset: assets/fonts/lato/Lato-Light.ttf
-          weight: 300
-        - asset: assets/fonts/lato/Lato-LightItalic.ttf
-          weight: 300
-          style: italic
-        - asset: assets/fonts/lato/Lato-Thin.ttf
-          weight: 100
-        - asset: assets/fonts/lato/Lato-ThinItalic.ttf
-          weight: 100
-          style: italic
-    
-

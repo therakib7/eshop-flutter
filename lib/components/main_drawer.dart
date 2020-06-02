@@ -113,6 +113,7 @@ class _MainDrawerState extends State<MainDrawer> {
           leading: Icon(Icons.settings, color: Theme.of(context).accentColor),
           title: Text('Roles'),
           onTap: () { 
+            Navigator.pop(context);
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => Role()),
