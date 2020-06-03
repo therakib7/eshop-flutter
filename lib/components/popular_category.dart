@@ -80,11 +80,13 @@ class _PopularCategoryState extends State<PopularCategory> {
                               ),
                             ),
                             ListTile(
-                                title: Text(
-                              'Two Gold Rings',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w700, fontSize: 16),
-                            ))
+                              title: Text(
+                                'Two Gold Rings',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w700, fontSize: 16),
+                              ),
+                              subtitle: Text('26 Products'),
+                            )
                           ],
                         ),
                       ),
