@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:eshop/widgets/BottomNavBarWidget.dart';
+import 'package:eshop/widgets/bottom_navbar_widget.dart';
 
 
 class Setting extends StatefulWidget {
@@ -122,7 +122,7 @@ class _SettingState extends State<Setting> {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavBarWidget(),
+      bottomNavigationBar: BottomNavbarWidget(),
     );
   }
 }

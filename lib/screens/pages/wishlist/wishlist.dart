@@ -1,6 +1,6 @@
 import 'package:eshop/screens/pages/wishlist/brand.dart';
 import 'package:eshop/screens/pages/wishlist/category.dart';
-import 'package:eshop/widgets/BottomNavBarWidget.dart';
+import 'package:eshop/widgets/bottom_navbar_widget.dart';
 import 'package:eshop/screens/pages/wishlist/product.dart';
 import 'package:flutter/material.dart';
 
@@ -46,7 +46,7 @@ class _WishListState extends State<WishList> {
             WishlistBrand(), 
           ],
         ),
-        bottomNavigationBar: BottomNavBarWidget(),
+        bottomNavigationBar: BottomNavbarWidget(),
       ),
     );
   }

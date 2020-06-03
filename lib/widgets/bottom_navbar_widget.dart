@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class BottomNavBarWidget extends StatefulWidget {
+class BottomNavbarWidget extends StatefulWidget {
   @override
-  _BottomNavBarWidgetState createState() => _BottomNavBarWidgetState();
+  _BottomNavbarWidgetState createState() => _BottomNavbarWidgetState();
 }
 
-class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
+class _BottomNavbarWidgetState extends State<BottomNavbarWidget> {
   @override
   Widget build(BuildContext context) {
     int _selectedIndex = 0;

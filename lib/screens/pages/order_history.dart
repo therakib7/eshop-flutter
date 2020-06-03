@@ -1,4 +1,4 @@
-import 'package:eshop/widgets/BottomNavBarWidget.dart';
+import 'package:eshop/widgets/bottom_navbar_widget.dart';
 import 'package:flutter/material.dart';
 
 class OrderHistory extends StatefulWidget {
@@ -22,7 +22,7 @@ class _OrderHistoryState extends State<OrderHistory> {
           child: Text('Go to Notification!'),
         ),
       ),
-      bottomNavigationBar: BottomNavBarWidget(),
+      bottomNavigationBar: BottomNavbarWidget(),
     );
   }
 }

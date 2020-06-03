@@ -2,7 +2,7 @@ import 'package:eshop/components/search_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
-import 'package:eshop/widgets/BottomNavBarWidget.dart';
+import 'package:eshop/widgets/bottom_navbar_widget.dart';
  
 class TypeProductScreen extends StatefulWidget {
   TypeProductScreen({Key key, this.type }) : super(key: key);
@@ -175,7 +175,7 @@ class _TypeProductScreenState extends State<TypeProductScreen> {
             );
           }),
         ),
-       bottomNavigationBar: BottomNavBarWidget(),
+       bottomNavigationBar: BottomNavbarWidget(),
     );
   }
 }

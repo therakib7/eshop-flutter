@@ -2,7 +2,7 @@ import 'package:eshop/components/main_drawer.dart';
 import 'package:eshop/components/popular_category.dart';
 import 'package:eshop/components/slider.dart';
 import 'package:eshop/components/type_product.dart';
-import 'package:eshop/widgets/BottomNavBarWidget.dart';
+import 'package:eshop/widgets/bottom_navbar_widget.dart';
 import 'package:flutter/material.dart';
 
 
@@ -67,7 +67,7 @@ class _HomeState extends State<Home> {
           TypeProductCom(type: 'trending_product', title: 'Trending Products'),
         ],
       ),
-      bottomNavigationBar: BottomNavBarWidget(),
+      bottomNavigationBar: BottomNavbarWidget(),
     );
   }
 }

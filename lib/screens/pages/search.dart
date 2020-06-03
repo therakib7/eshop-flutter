@@ -1,4 +1,4 @@
-import 'package:eshop/widgets/BottomNavBarWidget.dart';
+import 'package:eshop/widgets/bottom_navbar_widget.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -17,7 +17,7 @@ class SearchScreen extends StatelessWidget {
           child: Text('Go to Notification!'),
         ),
       ),
-        bottomNavigationBar: BottomNavBarWidget(),
+        bottomNavigationBar: BottomNavbarWidget(),
     );
   }
 }

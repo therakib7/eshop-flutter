@@ -1,4 +1,4 @@
-import 'package:eshop/widgets/BottomNavBarWidget.dart';
+import 'package:eshop/widgets/bottom_navbar_widget.dart';
 import 'package:flutter/material.dart';
 
 class NotificationScreen extends StatelessWidget {
@@ -11,7 +11,7 @@ class NotificationScreen extends StatelessWidget {
       body: Center(
         child: Text('You Notifications List'),
       ),
-        bottomNavigationBar: BottomNavBarWidget(),
+        bottomNavigationBar: BottomNavbarWidget(),
     );
   }
 }

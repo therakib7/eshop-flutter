@@ -1,5 +1,5 @@
 import 'package:eshop/components/slider.dart';
-import 'package:eshop/widgets/BottomNavBarWidget.dart';
+import 'package:eshop/widgets/bottom_navbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
@@ -38,7 +38,7 @@ class _ProductDetailState extends State<ProductDetail> {
       appBar: AppBar(
         title: Text('Product Details'),
       ),
-      bottomNavigationBar: BottomNavBarWidget(),
+      bottomNavigationBar: BottomNavbarWidget(),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
