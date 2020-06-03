@@ -5,15 +5,16 @@ import 'package:smooth_star_rating/smooth_star_rating.dart';
 import 'package:eshop/widgets/BottomNavBarWidget.dart';
  
 class TypeProductScreen extends StatefulWidget {
-  TypeProductScreen({Key key, this.title}) : super(key: key);
+  TypeProductScreen({Key key, this.type }) : super(key: key);
 
-  final String title;
+  final String type;
 
   @override
   _TypeProductScreenState createState() => _TypeProductScreenState();
 }
 
 class _TypeProductScreenState extends State<TypeProductScreen> {
+
   final List<Map<dynamic, dynamic>> products = [
     {
       'name': 'IPhone',
@@ -61,6 +62,7 @@ class _TypeProductScreenState extends State<TypeProductScreen> {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
+ 
     return Scaffold(
         key: scaffoldKey,
         appBar: AppBar(
@@ -72,7 +74,7 @@ class _TypeProductScreenState extends State<TypeProductScreen> {
                   ),
             ),
           ],
-          title: Text(widget.title),
+          title: Text('Title'),
         ), 
         endDrawer: Drawer(child: SearchDrawer()),
         body: GridView.count(

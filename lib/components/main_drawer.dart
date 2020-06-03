@@ -1,5 +1,6 @@
 import 'package:eshop/screens/pages/Role.dart';
 import 'package:eshop/screens/pages/order_history.dart';
+import 'package:eshop/screens/pages/type-product/type_product_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:eshop/screens/auth/auth_block.dart';
 import 'package:provider/provider.dart';
@@ -36,22 +37,124 @@ class _MainDrawerState extends State<MainDrawer> {
               "Rakib Hasan",
             ),
           ),
+        ExpansionTile(
+          title: Text('My Account'),
+          leading:
+              Icon(Icons.person_outline, color: Theme.of(context).accentColor),
+          children: <Widget>[
+            ListTile(
+              leading:
+                  Icon(Icons.refresh, color: Theme.of(context).accentColor),
+              title: Text('Order History'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => OrderHistory()),
+                );
+              },
+            ),
+            ListTile(
+              leading:
+                  Icon(Icons.favorite, color: Theme.of(context).accentColor),
+              title: Text('My Wishlist'),
+              trailing: Container(
+                padding: const EdgeInsets.all(10.0),
+                decoration: new BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Theme.of(context).primaryColor,
+                ),
+                child: Text('4',
+                    style: TextStyle(color: Colors.white, fontSize: 10.0)),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, '/wishlist');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.shopping_cart,
+                  color: Theme.of(context).accentColor),
+              title: Text('My Cart'),
+              trailing: Container(
+                padding: const EdgeInsets.all(10.0),
+                decoration: new BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Theme.of(context).primaryColor,
+                ),
+                child: Text('2',
+                    style: TextStyle(color: Colors.white, fontSize: 10.0)),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, '/cart');
+              },
+            ),
+          ],
+        ),
+        ExpansionTile(
+          title: Text('Testing Menu'),
+          leading: Icon(Icons.settings, color: Theme.of(context).accentColor),
+          children: <Widget>[
+            ListTile(
+              leading:
+                  Icon(Icons.settings, color: Theme.of(context).accentColor),
+              title: Text('Roles'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Role()),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.lock, color: Theme.of(context).accentColor),
+              title: Text('Login'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, '/auth');
+              },
+            ),
+          ],
+        ),
         ListTile(
-          leading: Icon(Icons.home, color: Theme.of(context).accentColor),
-          title: Text('Home'),
+          leading: Icon(Icons.favorite, color: Theme.of(context).accentColor),
+          title: Text('Offer Product'),
           onTap: () {
             Navigator.pop(context);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      TypeProductScreen(type: 'offer_product')),
+            );
           },
         ),
         ListTile(
-          leading:
-              Icon(Icons.shopping_basket, color: Theme.of(context).accentColor),
-          title: Text('Shop'),
-          trailing: Text('New',
-              style: TextStyle(color: Theme.of(context).primaryColor)),
+          leading: Icon(Icons.favorite, color: Theme.of(context).accentColor),
+          title: Text('New Arrivals'),
           onTap: () {
             Navigator.pop(context);
-            Navigator.pushNamed(context, '/shop');
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      TypeProductScreen(type: 'new_arrival')),
+            );
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.favorite, color: Theme.of(context).accentColor),
+          title: Text('Trending Products'),
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      TypeProductScreen(type: 'trending_product')),
+            );
           },
         ),
         ListTile(
@@ -60,72 +163,6 @@ class _MainDrawerState extends State<MainDrawer> {
           onTap: () {
             Navigator.pop(context);
             Navigator.pushNamed(context, '/categorise');
-          },
-        ),
-        ListTile(
-          leading: Icon(Icons.favorite, color: Theme.of(context).accentColor),
-          title: Text('My Wishlist'),
-          trailing: Container(
-            padding: const EdgeInsets.all(10.0),
-            decoration: new BoxDecoration(
-              shape: BoxShape.circle,
-              color: Theme.of(context).primaryColor,
-            ),
-            child: Text('4',
-                style: TextStyle(color: Colors.white, fontSize: 10.0)),
-          ),
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.pushNamed(context, '/wishlist');
-          },
-        ),
-        ListTile(
-          leading:
-              Icon(Icons.shopping_cart, color: Theme.of(context).accentColor),
-          title: Text('My Cart'),
-          trailing: Container(
-            padding: const EdgeInsets.all(10.0),
-            decoration: new BoxDecoration(
-              shape: BoxShape.circle,
-              color: Theme.of(context).primaryColor,
-            ),
-            child: Text('2',
-                style: TextStyle(color: Colors.white, fontSize: 10.0)),
-          ),
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.pushNamed(context, '/cart');
-          },
-        ),
-        ListTile(
-          leading: Icon(Icons.refresh, color: Theme.of(context).accentColor),
-          title: Text('Order History'),
-          onTap: () {
-            Navigator.pop(context);
-            // Navigator.pushNamed(context, '/order-history');
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => OrderHistory()),
-            );
-          },
-        ),
-        ListTile(
-          leading: Icon(Icons.settings, color: Theme.of(context).accentColor),
-          title: Text('Roles'),
-          onTap: () { 
-            Navigator.pop(context);
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Role()),
-            );
-          },
-        ),
-        ListTile(
-          leading: Icon(Icons.lock, color: Theme.of(context).accentColor),
-          title: Text('Login'),
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.pushNamed(context, '/auth');
           },
         ),
         Divider(),

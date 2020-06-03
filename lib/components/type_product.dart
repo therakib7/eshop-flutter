@@ -4,10 +4,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class TypeProductCom extends StatefulWidget {
-  TypeProductCom({Key key, this.title, this.name}) : super(key: key);
+  TypeProductCom({Key key, this.title, this.type}) : super(key: key);
 
   final String title;
-  final String name;
+  final String type;
 
   @override
   _TypeProductComState createState() => _TypeProductComState();
@@ -70,7 +70,7 @@ class _TypeProductComState extends State<TypeProductCom> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => TypeProductScreen(title: widget.title)),
+                            builder: (context) => TypeProductScreen(type: widget.type)),
                       );
                     }),
               ),
